@@ -1,14 +1,19 @@
 {
-  "name": "soogest-site",
-  "version": "0.1.0",
+  "name": "soogest",
+  "version": "1.0.0",
+  "description": "Vue project soogest",
+  "author": "A team university",
   "private": true,
   "scripts": {
+    "dev" : "node build/dev-server.js",
+    "start": "node server.js",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "npde build/build.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "express": "^4.17.1",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "vuex": "^3.1.3"
