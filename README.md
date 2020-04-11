@@ -1,4 +1,5 @@
-# soogest-site
+# soogest
+
 
 ## Project setup
 ```
