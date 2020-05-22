@@ -5,10 +5,11 @@
   "author": "A team university",
   "private": true,
   "scripts": {
-    "dev" : "node build/dev-server.js",
+    "dev": "node build/dev-server.js",
     "start": "node server.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "watch": "vue-cli-service build --watch",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

@@ -6,20 +6,18 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
+### Compiles files
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Compiles files and watch for changes
 ```
-npm run lint
+npm run watch
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Run site
+```
+node server.js
+```
+
