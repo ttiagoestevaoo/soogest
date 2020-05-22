@@ -1,5 +1,11 @@
 # soogest
 
+## Requisitos
+
+    - node: >= v10.15.1
+    - npm: >= v6.4.1
+
+
 
 ## Project setup
 ```
