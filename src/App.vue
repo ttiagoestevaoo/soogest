@@ -112,7 +112,6 @@ input[type="submit"]:hover{
     width: 92%;
     height: 460px;
     background-color: #0a0a0a;
-    border: 5px solid red;
     margin: auto;
     margin-top: 40px;
     max-width: 1020px;
@@ -129,6 +128,13 @@ input[type="submit"]:hover{
   transition: all 0.4s  linear;
 
 }
+.des{
+    float: left;
+    margin-right: 625px;
+    color: white;
+    margin-left: 30px;
+    margin-top: 15px;
+}
 .link a:hover {
   color: #39bfd7;
   background: #f7f7f7;
@@ -139,8 +145,6 @@ input[type="submit"]:hover{
 #cadastro, 
 #login{
   position: absolute;
-  top: 0px;
-  width: 88%;   
   padding: 18px 6% 60px 6%;
   background:white;
   animation-duration: 0.5s;
@@ -148,6 +152,8 @@ input[type="submit"]:hover{
   animation-fill-mode: both;
   border: 1px solid black;
   margin-top: -15px;
+  margin-right: -378px;
+  margin-left: 382px;
 }
 
 #paracadastro:target ~ .content #cadastro,
