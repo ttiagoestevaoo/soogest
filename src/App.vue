@@ -17,10 +17,7 @@
   text-align: center;
   color: #2c3e50;
 }
-#caixa{
- background: black;
- width:700px ;
-}
+
 a{
   text-decoration: none;
 }
@@ -68,12 +65,6 @@ label{
   position: relative;
 }
 
-/**** advanced input styling ****/
-/* placeholder */
-::-webkit-input-placeholder  {
-  color: #bebcbc; 
-  font-style: italic;
-}
 input:-moz-placeholder,
 textarea:-moz-placeholder{
   color: #bebcbc;
@@ -88,7 +79,6 @@ input:not([type="checkbox"]){
   margin-top: 4px;
   padding: 10px;    
   border: 1px solid #b2b2b2;
-  border-radius: 3px;
   box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
   transition: all 0.2s linear;
 }
@@ -112,7 +102,6 @@ input[type="submit"]:hover{
 /*marcando os links para mudar de um formulário para outro */
 .link{
   position: absolute;
-  background: #e1eaeb;
   color: #7f7c7c;
   left: 0px;
   height: 20px;
@@ -120,8 +109,7 @@ input[type="submit"]:hover{
   padding: 17px 30px 20px 30px;
   font-size: 12px;
   text-align: center;
-  border-top: 1px solid #dbe5e8;
-  border-radius: 0 0  5px 5px;
+
 }
 .link a {
   font-weight: bold;
@@ -148,7 +136,7 @@ input[type="submit"]:hover{
   padding: 18px 6% 60px 6%;
   margin: 0 0 35px 0;
   background: rgb(247, 247, 247);
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-timing-function: ease;
   animation-fill-mode: both;
 }
@@ -160,7 +148,7 @@ input[type="submit"]:hover{
   animation-name: fadeInLeft;
 
   -webkit-animation-delay: .1s;
-  animation-delay: .1s;
+  animation-delay: .2s;
 }
 #registro:target ~ .content #login,
 #paralogin:target ~ .content #cadastro{
