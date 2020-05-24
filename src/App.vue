@@ -50,13 +50,10 @@ h1:after{
   width: 100%;
   height: 2px;
   margin-top: 10px;
-  background: -webkit-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
   background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
 }
 
-p{
-  margin-bottom:15px;
-}
+
 p:first-child{
   margin: 0px;
 }
@@ -111,15 +108,26 @@ input[type="submit"]:hover{
   text-align: center;
 
 }
+.principal{
+    width: 92%;
+    height: 460px;
+    background-color: #0a0a0a;
+    border: 5px solid red;
+    margin: auto;
+    margin-top: 40px;
+    max-width: 1020px;
+    
+
+}
 .link a {
   font-weight: bold;
   background: #f7f8f1;
   padding: 6px;
   color: rgb(29, 162, 193);
   margin-left: 10px;
-  border: 1px solid #cbd518;
-  border-radius: 4px;
+  border: 1px solid #fdfdfc;
   transition: all 0.4s  linear;
+
 }
 .link a:hover {
   color: #39bfd7;
@@ -134,38 +142,26 @@ input[type="submit"]:hover{
   top: 0px;
   width: 88%;   
   padding: 18px 6% 60px 6%;
-  margin: 0 0 35px 0;
-  background: rgb(247, 247, 247);
+  background:white;
   animation-duration: 0.5s;
   animation-timing-function: ease;
   animation-fill-mode: both;
+  border: 1px solid black;
+  margin-top: -15px;
 }
 
 #paracadastro:target ~ .content #cadastro,
 #paralogin:target ~ .content #login{
   z-index: 2;
-  -webkit-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
-
-  -webkit-animation-delay: .1s;
-  animation-delay: .2s;
+  animation-delay: .1s;
 }
 #registro:target ~ .content #login,
 #paralogin:target ~ .content #cadastro{
   animation-name: fadeOutLeft;
 }
 
-/*fadeInLeft*/
-@-webkit-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
-}
+
 
 @keyframes fadeInLeft {
   0% {
@@ -175,18 +171,6 @@ input[type="submit"]:hover{
   100% {
     opacity: 1;
     transform: translateX(0);
-  }
-}
-
-/*fadeOutLeft*/
-@-webkit-keyframes fadeOutLeft {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateX(-20px);
   }
 }
 
