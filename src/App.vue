@@ -1,12 +1,7 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/login">Login</router-link>
-    </div>
+  <v-app>
     <router-view/>
-  </div>
+  </v-app>
 </template>
 
 <style lang="scss">
@@ -17,23 +12,19 @@
   text-align: center;
   color: #2c3e50;
 }
-
 a{
   text-decoration: none;
 }
-
 /* esconde as ancoras da tela */
 a.links{
   display: none;
 }
-
 /* content que contem os formulários */
 .content{
   width: 300px;
   margin: 0px auto;
-  position: relative;   
+  position: relative;
 }
-
 /* formatando o cabeçalho dos formulários */
 h1{
   font-size: 48px;
@@ -50,10 +41,8 @@ h1:after{
   width: 100%;
   height: 2px;
   margin-top: 10px;
-  background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
+  background: linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%);
 }
-
-
 p:first-child{
   margin: 0px;
 }
@@ -61,41 +50,37 @@ label{
   color: #405c60;
   position: relative;
 }
-
 input:-moz-placeholder,
 textarea:-moz-placeholder{
   color: #bebcbc;
   font-style: italic;
-} 
+}
 input {
   outline: none;
 }
-
 input:not([type="checkbox"]){
   width: 95%;
   margin-top: 4px;
-  padding: 10px;    
+  padding: 10px;
   border: 1px solid #b2b2b2;
   box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
   transition: all 0.2s linear;
 }
-
 /*estilo do botão submit */
 input[type="submit"]{
   width: 100%!important;
-  cursor: pointer;  
+  cursor: pointer;
   background: #3d9db3;
   padding: 8px 5px;
   color: #fff;
-  font-size: 20px;  
-  border: 1px solid #fff;   
+  font-size: 20px;
+  border: 1px solid #fff;
   text-shadow: 0 1px 1px #333;
   transition: all 0.2s linear;
 }
 input[type="submit"]:hover{
   background: #4ab3c6;
 }
-
 /*marcando os links para mudar de um formulário para outro */
 .link{
   position: absolute;
@@ -106,7 +91,6 @@ input[type="submit"]:hover{
   padding: 17px 30px 20px 30px;
   font-size: 12px;
   text-align: center;
-
 }
 .principal{
     width: 92%;
@@ -115,9 +99,8 @@ input[type="submit"]:hover{
     margin: auto;
     margin-top: 40px;
     max-width: 1020px;
-    
-
 }
+
 .link a {
   font-weight: bold;
   background: #f7f8f1;
@@ -126,7 +109,6 @@ input[type="submit"]:hover{
   margin-left: 10px;
   border: 1px solid #fdfdfc;
   transition: all 0.4s  linear;
-
 }
 .des{
     float: left;
@@ -140,9 +122,8 @@ input[type="submit"]:hover{
   background: #f7f7f7;
   border: 1px solid #4ab3c6;
 }
-
 /* estilos para para ambos os formulários */
-#cadastro, 
+#cadastro,
 #login{
   position: absolute;
   padding: 18px 6% 60px 6%;
@@ -155,7 +136,6 @@ input[type="submit"]:hover{
   margin-right: -378px;
   margin-left: 382px;
 }
-
 #paracadastro:target ~ .content #cadastro,
 #paralogin:target ~ .content #login{
   z-index: 2;
@@ -166,9 +146,6 @@ input[type="submit"]:hover{
 #paralogin:target ~ .content #cadastro{
   animation-name: fadeOutLeft;
 }
-
-
-
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
@@ -179,7 +156,6 @@ input[type="submit"]:hover{
     transform: translateX(0);
   }
 }
-
 @keyframes fadeOutLeft {
   0% {
     opacity: 1;
@@ -190,17 +166,24 @@ input[type="submit"]:hover{
     transform: translateX(-20px);
   }
 }
-
 #nav {
   padding: 30px;
-
   a {
     font-weight: bold;
     color: #2c3e50;
-
     &.router-link-exact-active {
       color: #42b983;
     }
   }
 }
 </style>
+
+<script>
+import Notification from '@/components/Notification.vue'
+export default {
+  name: 'index',
+  components: {
+    Notification
+  }
+}
+</script>

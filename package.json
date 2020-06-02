@@ -1,22 +1,25 @@
 {
   "name": "soogest",
   "version": "1.0.0",
+  "private": true,
   "description": "Vue project soogest",
   "author": "A team university",
-  "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "start": "node server.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "watch": "vue-cli-service build --watch",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "dev": "node build/dev-server.js",
+    "start": "node server.js",
+    "watch": "vue-cli-service build --watch"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "express": "^4.17.1",
+    "promise": "^8.1.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
+    "vuetify": "^2.2.11",
     "vuex": "^3.1.3"
   },
   "devDependencies": {
@@ -35,6 +38,8 @@
     "eslint-plugin-vue": "^6.2.2",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-cli-plugin-vuetify": "~2.0.5",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.3.0"
   }
 }
