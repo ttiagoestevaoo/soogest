@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:8001/api/'
+axios.defaults.baseURL = 'http://soogest-api.herokuapp.com/api/'
 
 Vue.use(Vuex)
 
