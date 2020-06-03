@@ -179,11 +179,7 @@ input[type="submit"]:hover{
 </style>
 
 <script>
-import Notification from '@/components/Notification.vue'
 export default {
-  name: 'index',
-  components: {
-    Notification
-  }
+  name: 'index'
 }
 </script>
