@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
+//Api url
 axios.defaults.baseURL=process.env.API_URL
 
 Vue.use(Vuex)
