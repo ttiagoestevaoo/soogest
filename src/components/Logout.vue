@@ -5,10 +5,10 @@
 </template>
 <script>
 export default {
-    methods: {
-        logout(event){
-            this.$store.dispatch('forgetToken')
-        }
+  methods: {
+    logout (event) {
+      this.$store.dispatch('forgetToken')
     }
+  }
 }
 </script>

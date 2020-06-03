@@ -25,13 +25,13 @@
 export default {
   props: ['message'],
   data () {
-      return {
-          mode: '',
-          timeout: 6000,
-          x: 'right',
-          y: 'top',
-          color: 'success'
-      }
+    return {
+      mode: '',
+      timeout: 6000,
+      x: 'right',
+      y: 'top',
+      color: 'success'
+    }
   }
 }
 </script>

@@ -37,25 +37,25 @@
 </template>
 <script>
 export default {
-    data () {
-        return {
-            name: '',
-            email: '',
-            password: '',
-            c_password: ''
-        }
-    },
-    methods: {
-        register () {
-            this.$store.dispatch('registerUser', {
-                name: this.name,
-                email: this.email,
-                password: this.password,
-                c_password: this.c_password,
-            }).then((response)=>{
-                console.log("Usuario criado")
-            })
-        }
-    }
+	data () {
+		return {
+			name: '',
+			email: '',
+			password: '',
+			c_password: ''
+		}
+	},
+	methods: {
+		register () {
+			this.$store.dispatch('registerUser', {
+				name: this.name,
+				email: this.email,
+				password: this.password,
+				c_password: this.c_password
+			}).then((response)=>{
+				console.log("Usuario criado")
+			})
+		}
+	}
 }
 </script>
