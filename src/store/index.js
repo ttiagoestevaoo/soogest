@@ -2,19 +2,18 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-//Api url
-axios.defaults.baseURL=process.env.API_URL
+// Api url
+axios.defaults.baseURL = process.env.API_URL
 
 Vue.use(Vuex)
 
 var Promisse = require('promise')
 
-
 export default new Vuex.Store({
   state: {
     token: localStorage.getItem('access_token') || null,
     snack: '',
-    snackMessage: '',
+    snackMessage: ''
   },
   getters: {
     loggedIn (state) {
