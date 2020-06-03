@@ -2,15 +2,18 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://soogest-api.herokuapp.com/api/'
+axios.defaults.baseURL=process.env.VUE_APP_REMOTE_API
 
 Vue.use(Vuex)
 
 var Promisse = require('promise')
 
+
 export default new Vuex.Store({
   state: {
-    token: localStorage.getItem('access_token') || null
+    token: localStorage.getItem('access_token') || null,
+    snack: '',
+    snackMessage: '',
   },
   getters: {
     loggedIn (state) {
@@ -26,6 +29,10 @@ export default new Vuex.Store({
   mutations: {
     retrieveToken (state, token) {
       state.token = token
+    },
+    setSnack (state, message) {
+      state.snack = true
+      state.snackMessage = message
     }
   },
   actions: {

@@ -2,6 +2,8 @@
     <div id="index">
         <IndexAuth v-if="loggedIn"></IndexAuth>
         <IndexGuest v-else></IndexGuest>
+        <Notification :message="message" @snackMessage="snackMessage"></Notification>
+
     </div>
 </template>
 
@@ -12,6 +14,17 @@ import IndexGuest from '@/views/IndexGuest.vue'
 
 export default {
   name: 'index',
+  data () {
+    return {
+      message: 'Teste'
+    }
+  },
+  methods: {
+    snackMessage (message) {
+      console.log('Teste')
+      this.message = message
+    }
+  },
   computed: {
     loggedIn () {
       return this.$store.getters.loggedIn
