@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 // Api url
-axios.defaults.baseURL = process.env.API_URL
+axios.defaults.baseURL = process.env.API_URL || 'http://soogest-api.herokuapp.com/api'
 
 Vue.use(Vuex)
 
