@@ -35,13 +35,12 @@ export default {
   data () {
     return {
       email_login: '',
-      senha_login: '',     
+      senha_login: '',
       mode: '',
       snackbar: true,
       timeout: 6000,
       x: 'right',
       y: 'top'
-       
     }
   },
   methods: {

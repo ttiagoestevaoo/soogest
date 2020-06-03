@@ -23,7 +23,6 @@
             <input name="c_password" required="required" type="password" v-model="c_password" placeholder="********"/>
         </p>
 
-
         <p>
             <input type="submit" value="Cadastrar"/>
         </p>
@@ -47,12 +46,13 @@ export default {
 	},
 	methods: {
 		register () {
-			this.$store.dispatch('registerUser', {
+			this.$store.dispatch ('registerUser', {
 				name: this.name,
 				email: this.email,
 				password: this.password,
 				c_password: this.c_password
-			}).then((response)=>{
+			}).
+			then ((response) => {
 				console.log("Usuario criado")
 			})
 		}
