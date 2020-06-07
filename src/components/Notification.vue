@@ -1,6 +1,6 @@
 <template>
     <v-snackbar
-      v-model="snack"
+      v-model="snackbar"
       :bottom="y === 'bottom'"
       :color="color"
       :left="x === 'left'"
@@ -14,7 +14,7 @@
     <v-btn
       dark
       text
-      @click="snack=false"
+      @click="snackbar=false"
       >
         Close
       </v-btn>
@@ -23,14 +23,16 @@
 
 <script>
 export default {
-  props: ['message'],
   data () {
     return {
       mode: '',
       timeout: 6000,
       x: 'right',
       y: 'top',
-      color: 'success'
+      color: 'success',
+      snackbar: true,
+      message: 'Teste'
+
     }
   }
 }

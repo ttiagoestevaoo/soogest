@@ -8,6 +8,10 @@ export default {
   methods: {
     logout (event) {
       this.$store.dispatch('forgetToken')
+      .then((response) => {
+          console.log('Usuario criado')
+          this.$router.push({ name: 'index'})
+        })
     }
   }
 }

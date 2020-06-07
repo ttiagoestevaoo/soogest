@@ -2,7 +2,7 @@
     <div id="index">
         <IndexAuth v-if="loggedIn"></IndexAuth>
         <IndexGuest v-else></IndexGuest>
-        <Notification :message="message" @snackMessage="snackMessage"></Notification>
+        <Notification></Notification>
 
     </div>
 </template>
@@ -19,16 +19,10 @@ export default {
       message: 'Teste'
     }
   },
-  methods: {
-    snackMessage (message) {
-      console.log('Teste')
-      this.message = message
-    }
-  },
   computed: {
-    loggedIn () {
-      return this.$store.getters.loggedIn
-    }
+      loggedIn () {
+        return this.$store.getters.loggedIn
+      }
   },
   components: {
     IndexAuth,

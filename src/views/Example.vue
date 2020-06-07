@@ -1,11 +1,7 @@
 <template>
-  <div id="index_auth">
-    <Navbar></Navbar>  
-      
-    <h1> Você está logado </h1>
-    
-    <!-- route outlet -->
-    <!-- component matched by the route will render here -->
+  <div id="">
+    <Navbar></Navbar>
+
   
   </div>
 </template>
@@ -13,9 +9,13 @@
 <script>
 import Navbar from '@/components/Navbar.vue'
 export default {
-  name: 'index',
   components: {
     Navbar
+  },
+  data() {
+    return {
+      
+    }
   }
 }
 </script>
