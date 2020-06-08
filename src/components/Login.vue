@@ -48,7 +48,11 @@ export default {
       this.$store.dispatch('retrieveToken', {
         email_login: this.email_login,
         senha_login: this.senha_login
-      }).then()
+      })
+        .then((response) => {
+          this.$store.dispatch('setSnackbar', 'Login realizado com sucesso')
+          this.$router.push({ name: 'index' })
+        })
     }
   }
 }

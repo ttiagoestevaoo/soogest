@@ -1,6 +1,7 @@
 <template>
+  <div id="notification">
     <v-snackbar
-      v-model="snackbar"
+      v-model="snackbar.showing"
       :bottom="y === 'bottom'"
       :color="color"
       :left="x === 'left'"
@@ -10,29 +11,29 @@
       :top="y === 'top'"
       :vertical="mode === 'vertical'"
     >
-    {{ message }}
+    {{ snackbar.text }}
     <v-btn
       dark
       text
-      @click="snackbar=false"
+      @click="snackbar.showing=false"
       >
         Close
       </v-btn>
     </v-snackbar>
+  </div>
 </template>
 
 <script>
 export default {
+  name: 'notification',
+  props: ['snackbar'],
   data () {
     return {
       mode: '',
-      timeout: 6000,
+      timeout: 10000,
       x: 'right',
       y: 'top',
-      color: 'success',
-      snackbar: true,
-      message: 'Teste'
-
+      color: 'success'
     }
   }
 }

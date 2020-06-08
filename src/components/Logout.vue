@@ -9,6 +9,7 @@ export default {
     logout (event) {
       this.$store.dispatch('forgetToken')
         .then((response) => {
+          this.$store.dispatch('setSnackbar', 'Logout realizado com sucesso')
           this.$router.push({ name: 'index' })
         })
     }

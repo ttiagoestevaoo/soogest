@@ -66,6 +66,7 @@ export default {
         deadline: this.deadline
       })
         .then((response) => {
+          this.$store.dispatch('setSnackbar', 'Projeto criado com sucesso')
           this.$router.push({
             name: 'projects'
           })

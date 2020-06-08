@@ -1,8 +1,32 @@
 <template>
   <v-app>
     <router-view/>
+    <Notification :snackbar="snackbar"></Notification>
+
   </v-app>
 </template>
+
+<script>
+
+import Notification from '@/components/Notification.vue'
+import { mapState } from 'vuex'
+
+export default {
+  name: 'app',
+  data () {
+    return {
+      
+    }
+  },
+  computed: {
+    ...mapState(['snackbar'])
+  },
+  components: {
+    Notification
+  }
+}
+
+</script>
 
 <style lang="scss">
 #app {
@@ -178,9 +202,3 @@ input[type="submit"]:hover{
   }
 }
 </style>
-
-<script>
-export default {
-  name: 'index'
-}
-</script>

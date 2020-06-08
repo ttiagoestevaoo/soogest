@@ -2,7 +2,6 @@
     <div id="index">
         <IndexAuth v-if="loggedIn"></IndexAuth>
         <IndexGuest v-else></IndexGuest>
-        <Notification></Notification>
 
     </div>
 </template>

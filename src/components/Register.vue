@@ -57,7 +57,7 @@ export default {
         c_password: this.c_password
       })
         .then((response) => {
-          console.log('Usuario criado')
+          this.$store.dispatch('setSnackbar', 'Cadastro realizado com sucesso')
         })
     }
   }

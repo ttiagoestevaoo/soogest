@@ -122,6 +122,7 @@ export default {
         id: this.id
       })
         .then((response) => {
+          this.$store.dispatch('setSnackbar', 'Projeto excluído com sucesso')
           this.$router.push({
             name: 'projects'
           })
@@ -135,6 +136,7 @@ export default {
         deadline: this.deadline
       })
         .then((response) => {
+          this.$store.dispatch('setSnackbar', 'Projeto editado com sucesso')
           this.$router.push({
             name: 'projects.show',
             params: this.id

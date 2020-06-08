@@ -12,8 +12,7 @@ var Promisse = require('promise')
 export default new Vuex.Store({
   state: {
     token: localStorage.getItem('access_token') || null,
-    snack: '',
-    snackMessage: ''
+    snackbar: {}
   },
   getters: {
     loggedIn (state) {
@@ -30,12 +29,18 @@ export default new Vuex.Store({
     retrieveToken (state, token) {
       state.token = token
     },
-    setSnack (state, message) {
-      state.snack = true
-      state.snackMessage = message
+    setSnackbar (state, snackbar) {
+      state.snackbar = snackbar
     }
   },
   actions: {
+    setSnackbar ({ commit }, message) {
+      var snackbar = {
+        showing: true,
+        text: message
+      }
+      commit('setSnackbar', snackbar)
+    },
     retrieveToken (context, credentials) {
       return new Promisse((resolve, reject) => {
         axios.post('/login', {
@@ -46,6 +51,7 @@ export default new Vuex.Store({
             const token = response.data.access_token
             localStorage.setItem('access_token', token)
             context.commit('retrieveToken', token)
+            resolve(response)
           })
           .catch(error => {
             reject(error)
@@ -160,6 +166,7 @@ export default new Vuex.Store({
           .then(response => {
             localStorage.removeItem('access_token')
             context.commit('retrieveToken')
+            resolve(response)
           })
           .catch(error => {
             reject(error)
