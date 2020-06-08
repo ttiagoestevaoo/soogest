@@ -11,14 +11,12 @@
         <h2>{{ project.deadline }}</h2>
         <v-btn>
           Editar
-        <v-btn>
+        </v-btn>
         <v-btn>
           Deletar
-        <v-btn>
+        </v-btn>
       </v-col>
     </v-row>
-    
-   
   </div>
 </template>
 
@@ -28,25 +26,16 @@ export default {
   components: {
     Navbar
   },
-  data() {
+  data () {
     return {
       project: {}
     }
   },
-  created() {
-    this.$store.dispatch('getProject',this.$route.params.id)
+  created () {
+    this.$store.dispatch('getProject', this.$route.params.id)
       .then((response) => {
         this.project = response.data
-
       })
-
   }
 }
 </script>
-
-<style lang="scss">
-
-.v-toolbar_content {
-    box-shadow: none;
-}
-</style>
