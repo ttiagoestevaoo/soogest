@@ -4,7 +4,7 @@
     <div class="d-flex justify-space-between">
       <p>Meus projetos</p>
 
-    </div>  
+    </div>
     <div class="d-flex justify-space-around mb-6">
       <v-card
       class="mx-auto col-4"
@@ -15,7 +15,7 @@
           <p class="display-1 text--primary">
             {{ project.name }}
           </p>
-          
+
           <div class="text--primary">
             {{ project.description }}
           </div>
@@ -50,7 +50,7 @@ export default {
   components: {
     Navbar
   },
-  data() {
+  data () {
     return {
       projects: [
         {
@@ -59,7 +59,7 @@ export default {
           description: 'Projeto gerado estaticamente',
           deadline: '2020-12-01'
         },
-         {
+        {
           id: 2,
           name: 'Projeto teste 2',
           description: 'Projeto gerado estaticamente',

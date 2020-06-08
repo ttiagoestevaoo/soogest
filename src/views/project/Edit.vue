@@ -122,8 +122,7 @@ export default {
         id: this.id
       })
         .then((response) => {
-          console.log('Projeto excluido')
-          this.$router.push ({
+          this.$router.push({
             name: 'projects'
           })
         })
@@ -136,8 +135,7 @@ export default {
         deadline: this.deadline
       })
         .then((response) => {
-          console.log('Projeto editado')
-          this.$router.push ({
+          this.$router.push({
             name: 'projects.show',
             params: this.id
           })

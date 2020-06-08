@@ -8,7 +8,7 @@
 
       <v-app-bar-nav-icon class="ml-10" > Soogest</v-app-bar-nav-icon>
       <v-spacer></v-spacer>
-     
+
       <v-btn text :to="{name: 'projects'}"> Projetos </v-btn>
       <v-btn text :to="{name: 'tasks'}"> Tarefas </v-btn>
       <v-btn text>{{ this.name }} </v-btn>
@@ -33,7 +33,7 @@ export default {
     })
   },
   components: {
-    Logout,
+    Logout
   }
 }
 </script>

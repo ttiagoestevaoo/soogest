@@ -20,9 +20,9 @@ export default {
     }
   },
   computed: {
-      loggedIn () {
-        return this.$store.getters.loggedIn
-      }
+    loggedIn () {
+      return this.$store.getters.loggedIn
+    }
   },
   components: {
     IndexAuth,

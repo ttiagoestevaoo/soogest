@@ -1,12 +1,9 @@
 <template>
   <div id="index_auth">
-    <Navbar></Navbar>  
-      
+    <Navbar></Navbar>
+
     <h1> Você está logado </h1>
-    
-    <!-- route outlet -->
-    <!-- component matched by the route will render here -->
-  
+
   </div>
 </template>
 

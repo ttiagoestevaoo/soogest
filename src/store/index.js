@@ -48,7 +48,7 @@ export default new Vuex.Store({
             context.commit('retrieveToken', token)
           })
           .catch(error => {
-            console.log(error)
+            reject(error)
           })
       })
     },
@@ -77,7 +77,6 @@ export default new Vuex.Store({
             resolve(response)
           })
           .catch(error => {
-            console.log(error)
             reject(error)
           })
       })
@@ -95,7 +94,6 @@ export default new Vuex.Store({
             resolve(response)
           })
           .catch(error => {
-            console.log(error)
             reject(error)
           })
       })
@@ -113,7 +111,6 @@ export default new Vuex.Store({
             resolve(response)
           })
           .catch(error => {
-            console.log(error)
             reject(error)
           })
       })
@@ -127,7 +124,6 @@ export default new Vuex.Store({
             resolve(response)
           })
           .catch(error => {
-            console.log(error)
             reject(error)
           })
       })
@@ -141,7 +137,6 @@ export default new Vuex.Store({
             resolve(response)
           })
           .catch(error => {
-            console.log(error)
             reject(error)
           })
       })
@@ -154,7 +149,6 @@ export default new Vuex.Store({
             resolve(response)
           })
           .catch(error => {
-            console.log(error)
             reject(error)
           })
       })
@@ -167,7 +161,7 @@ export default new Vuex.Store({
           context.commit('retrieveToken')
         })
         .catch(error => {
-          console.log(error)
+          reject(error)
         })
     }
   },

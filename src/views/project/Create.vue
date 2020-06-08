@@ -66,8 +66,7 @@ export default {
         deadline: this.deadline
       })
         .then((response) => {
-          console.log('Projeto criado')
-          this.$router.push ({
+          this.$router.push({
             name: 'projects'
           })
         })
