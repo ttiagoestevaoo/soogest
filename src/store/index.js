@@ -119,7 +119,7 @@ export default new Vuex.Store({
       axios.defaults.headers.common.Authorization = 'Bearer ' + this.state.token
 
       return new Promisse((resolve, reject) => {
-        axios.delete('/projects/' + credentials.id )
+        axios.delete('/projects/' + credentials.id)
           .then(response => {
             resolve(response)
           })
@@ -155,14 +155,16 @@ export default new Vuex.Store({
     },
     forgetToken (context) {
       axios.defaults.headers.common.Authorization = 'Bearer ' + this.state.token
-      axios.post('/logout')
-        .then(response => {
-          localStorage.removeItem('access_token')
-          context.commit('retrieveToken')
-        })
-        .catch(error => {
-          reject(error)
-        })
+      return new Promisse((resolve, reject) => {
+        axios.post('/logout')
+          .then(response => {
+            localStorage.removeItem('access_token')
+            context.commit('retrieveToken')
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
     }
   },
   modules: {
