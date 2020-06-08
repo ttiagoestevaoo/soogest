@@ -4,7 +4,7 @@
     <div class="d-flex justify-center mb-4">
       <h2>Meus projetos</h2>
 
-    </div>  
+    </div>
     <div class="d-flex justify-space-around mb-6" v-if="projects.length && this.render">
       <v-card
       class="mx-auto col-4"
@@ -16,7 +16,7 @@
           <p class="display-1 text--primary">
             {{ project.name }}
           </p>
-          
+
           <div class="text--primary">
             {{ project.description }}
           </div>
@@ -37,7 +37,6 @@
     </div>
     <p v-else-if="!projects.length && this.render" class="mb-6">Possui nenhum projeto, crie algum </p>
     <v-btn
-      v-show="!hidden"
       color="blue"
       dark
       fixed
@@ -57,13 +56,13 @@ export default {
   components: {
     Navbar
   },
-  data() {
+  data () {
     return {
       projects: [],
       render: false
     }
   },
-  created() {
+  created () {
     this.$store.dispatch('getProjects').then((response) => {
       this.projects = response.data
       this.render = true

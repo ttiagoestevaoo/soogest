@@ -12,6 +12,9 @@
   text-align: center;
   color: #2c3e50;
 }
+.v-btn--active {
+  opacity: 0;
+}
 a{
   text-decoration: none;
 }

@@ -9,7 +9,7 @@
         <h2>{{ project.name }}</h2>
         <h2>{{ project.description }}</h2>
         <h2>{{ project.deadline }}</h2>
-        <v-btn>
+        <v-btn :to="{ name: 'projects.edit', params:project.id}">
           Editar
         </v-btn>
         <v-btn>

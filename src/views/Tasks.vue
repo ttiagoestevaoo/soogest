@@ -31,7 +31,6 @@
       </v-card>
     </div>
     <v-btn
-      v-show="!hidden"
       color="blue"
       dark
       fixed

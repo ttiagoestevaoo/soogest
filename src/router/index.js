@@ -8,7 +8,7 @@ const routes = [
   {
     path: '',
     name: 'index',
-    component: () => import('../views/Index.vue'),    
+    component: () => import('../views/Index.vue')
   },
   {
     path: '/test',
@@ -43,6 +43,14 @@ const routes = [
     }
   },
   {
+    path: '/projects/:id/edit',
+    name: 'projects.edit',
+    component: () => import('../views/project/Edit.vue'),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
     path: '/tasks',
     name: 'tasks',
     component: () => import('../views/Tasks.vue'),
@@ -62,7 +70,7 @@ router.beforeEach((to, from, next) => {
     // if not, redirect to login page.
     if (!store.getters.loggedIn) {
       next({
-        name: 'index',
+        name: 'index'
       })
     } else {
       next()
