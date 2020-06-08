@@ -114,6 +114,20 @@ export default new Vuex.Store({
           })
       })
     },
+    getProject (context, id) {
+      axios.defaults.headers.common.Authorization = 'Bearer ' + this.state.token
+      console.log(id)
+      return new Promisse((resolve, reject) => {
+        axios.get('/projects/'+ id)
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            console.log(error)
+            reject(error)
+          })
+      })
+    },
     forgetToken (context) {
       axios.defaults.headers.common.Authorization = 'Bearer ' + this.state.token
       axios.post('/logout')

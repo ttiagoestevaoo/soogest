@@ -5,7 +5,7 @@
       <h2>Meus projetos</h2>
 
     </div>  
-    <div class="d-flex justify-space-around mb-6" v-if="projects.length">
+    <div class="d-flex justify-space-around mb-6" v-if="projects.length && this.render">
       <v-card
       class="mx-auto col-4"
       outlined
@@ -20,18 +20,22 @@
           <div class="text--primary">
             {{ project.description }}
           </div>
+          <p class="">
+            {{ project.deadline }}
+          </p>
         </v-card-text>
         <v-card-actions>
           <v-btn
             text
             color="deep-purple accent-4"
+            :to="{ name: 'projects.show', params: { id: project.id } }"
           >
             Ver projeto
           </v-btn>
         </v-card-actions>
       </v-card>
     </div>
-    <p v-else class="mb-6">Possui nenhum projeto, crie algum </p>
+    <p v-else-if="!projects.length && this.render" class="mb-6">Possui nenhum projeto, crie algum </p>
     <v-btn
       v-show="!hidden"
       color="blue"
@@ -55,12 +59,14 @@ export default {
   },
   data() {
     return {
-      projects: []
+      projects: [],
+      render: false
     }
   },
-  mounted() {
+  created() {
     this.$store.dispatch('getProjects').then((response) => {
       this.projects = response.data
+      this.render = true
     })
   }
 }
