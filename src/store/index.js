@@ -118,6 +118,20 @@ export default new Vuex.Store({
           })
       })
     },
+    destroyProject (context, credentials) {
+      axios.defaults.headers.common.Authorization = 'Bearer ' + this.state.token
+
+      return new Promisse((resolve, reject) => {
+        axios.delete('/projects/' + credentials.id )
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            console.log(error)
+            reject(error)
+          })
+      })
+    },
     getProjects (context, credentials) {
       axios.defaults.headers.common.Authorization = 'Bearer ' + this.state.token
 

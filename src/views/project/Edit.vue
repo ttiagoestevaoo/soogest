@@ -29,8 +29,64 @@
                     <input name="deadline" class="col-12" required type="date"  v-model="deadline" placeholder=""/>
                 </v-col>
                 <v-col cols=12>
-                    <v-btn type="submit">Salvar </v-btn>
-                    <v-btn type="submit" :to="{ name: 'projects.show', params: id }">Cancelar</v-btn>
+                  <v-row>
+                    <v-col cols=4>
+                      <v-btn :to="{ name: 'projects.show', params: id }">Cancelar</v-btn>
+                    </v-col>
+
+                    <v-col cols=4>
+                      <v-btn type="submit">Salvar </v-btn>
+                    </v-col>
+
+                    <v-col cols=4>
+                      <v-dialog
+                        v-model="dialog"
+                        width="500"
+                      >
+                        <template v-slot:activator="{ on }">
+                          <v-btn
+                            v-on="on"
+                          >
+                            Delete
+                          </v-btn>
+                        </template>
+
+                        <v-card>
+                          <v-card-title
+                            class="headline grey lighten-2"
+                            primary-title
+                          >
+                            Deletar {{ name }}
+                          </v-card-title>
+
+                          <v-card-text>
+                            Tem certeza que desaja excluir este projeto?
+                          </v-card-text>
+
+                          <v-divider></v-divider>
+
+                          <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                              color="primary"
+                              flat
+                              @click="destroy"
+                            >
+                              Excluir
+                            </v-btn>
+
+                            <v-btn
+                              color="primary"
+                              flat
+                              @click="dialog = false"
+                            >
+                              Cancelar
+                            </v-btn>
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
+                    </v-col>
+                  </v-row>
                 </v-col>
               </form>
             </v-card-text>
@@ -56,10 +112,22 @@ export default {
       id: '',
       name: '',
       description: '',
-      deadline: ''
+      deadline: '',
+      dialog: false
     }
   },
   methods: {
+    destroy () {
+      this.$store.dispatch('destroyProject', {
+        id: this.id
+      })
+        .then((response) => {
+          console.log('Projeto excluido')
+          this.$router.push ({
+            name: 'projects'
+          })
+        })
+    },
     submit () {
       this.$store.dispatch('updateProject', {
         id: this.id,

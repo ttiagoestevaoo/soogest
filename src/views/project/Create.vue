@@ -31,7 +31,7 @@
                 </v-col>
                 <v-col cols=12>
                     <v-btn type="submit">Salvar </v-btn>
-                    <v-btn type="submit" :to="{ name: 'projects' }">Cancelar</v-btn>
+                    <v-btn :to="{ name: 'projects' }">Cancelar</v-btn>
                 </v-col>
 
               </form>
