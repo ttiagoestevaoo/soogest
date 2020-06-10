@@ -75,10 +75,10 @@ textarea:-moz-placeholder{
   color: #bebcbc;
   font-style: italic;
 }
-input {
+input, .selectProject {
   outline: none;
 }
-input:not([type="checkbox"]){
+input:not([type="checkbox"]), .selectProject{
   width: 95%;
   margin-top: 4px;
   padding: 10px;
