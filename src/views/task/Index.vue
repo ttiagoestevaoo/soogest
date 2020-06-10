@@ -1,35 +1,37 @@
 <template>
   <div id="tasks">
     <Navbar></Navbar>
-    <div class="d-flex justify-space-between">
-      <p>Meus projetos</p>
+    <div class="d-flex justify-center mb-4">
+      <h2>Minhas tarefas</h2>
 
     </div>
-    <div class="d-flex justify-space-around mb-6">
+    <div class="d-flex justify-space-around mb-6" v-if="tasks.length && this.render">
       <v-card
       class="mx-auto col-4"
       max-width="344"
-      v-for="project in projects"
-      :key="project.id">
+      v-for="task in tasks"
+      :key="task.id">
         <v-card-text>
           <p class="display-1 text--primary">
-            {{ project.name }}
+            {{ task.name }}
           </p>
 
           <div class="text--primary">
-            {{ project.description }}
+            {{ task.description }}
           </div>
         </v-card-text>
         <v-card-actions>
           <v-btn
             text
             color="deep-purple accent-4"
+            :to="{ name: 'tasks.show', params: { id: task.id } }"
           >
-            Ver projeto
+            Ver tarefa
           </v-btn>
         </v-card-actions>
       </v-card>
     </div>
+    <p v-else-if="!tasks.length && this.render" class="mb-6">Possui nenhuma tarefa, crie alguma </p>
     <v-btn
       color="blue"
       dark
@@ -37,6 +39,7 @@
       bottom
       right
       fab
+      :to="{ name: 'tasks.create'}"
     >
       <v-icon>mdi-plus</v-icon>
     </v-btn>
@@ -52,21 +55,15 @@ export default {
   },
   data () {
     return {
-      projects: [
-        {
-          id: 1,
-          name: 'Projeto teste',
-          description: 'Projeto gerado estaticamente',
-          deadline: '2020-12-01'
-        },
-        {
-          id: 2,
-          name: 'Projeto teste 2',
-          description: 'Projeto gerado estaticamente',
-          deadline: '2020-12-02'
-        }
-      ]
+      tasks: [],
+      render: false
     }
+  },
+  created () {
+    this.$store.dispatch('getTasks').then((response) => {
+      this.tasks = response.data
+      this.render = true
+    })
   }
 }
 </script>

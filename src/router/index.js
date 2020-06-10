@@ -53,7 +53,31 @@ const routes = [
   {
     path: '/tasks',
     name: 'tasks',
-    component: () => import('../views/Tasks.vue'),
+    component: () => import('../views/task/Index.vue'),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/tasks/create',
+    name: 'tasks.create',
+    component: () => import('../views/task/Create.vue'),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/tasks/:id',
+    name: 'tasks.show',
+    component: () => import('../views/task/Show.vue'),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/tasks/:id/edit',
+    name: 'tasks.edit',
+    component: () => import('../views/task/Edit.vue'),
     meta: {
       requiresAuth: true
     }

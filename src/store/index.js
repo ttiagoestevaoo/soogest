@@ -159,6 +159,82 @@ export default new Vuex.Store({
           })
       })
     },
+    createTask (context, credentials) {
+      axios.defaults.headers.common.Authorization = 'Bearer ' + this.state.token
+
+      return new Promisse((resolve, reject) => {
+        axios.post('/tasks', {
+          name: credentials.name,
+          description: credentials.description,
+          deadline: credentials.deadline,
+          project_id: credentials.project_id,
+          complete: credentials.complete
+        })
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
+    updateTask (context, credentials) {
+      axios.defaults.headers.common.Authorization = 'Bearer ' + this.state.token
+
+      return new Promisse((resolve, reject) => {
+        axios.put('/tasks/' + credentials.id, {
+          name: credentials.name,
+          description: credentials.description,
+          deadline: credentials.deadline,
+          complete: credentials.complete,
+          project_id: credentials.project_id
+        })
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
+    destroyTask (context, credentials) {
+      axios.defaults.headers.common.Authorization = 'Bearer ' + this.state.token
+
+      return new Promisse((resolve, reject) => {
+        axios.delete('/tasks/' + credentials.id)
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
+    getTasks (context, credentials) {
+      axios.defaults.headers.common.Authorization = 'Bearer ' + this.state.token
+
+      return new Promisse((resolve, reject) => {
+        axios.get('/tasks')
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
+    getTask (context, id) {
+      axios.defaults.headers.common.Authorization = 'Bearer ' + this.state.token
+      return new Promisse((resolve, reject) => {
+        axios.get('/tasks/' + id)
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
     forgetToken (context) {
       axios.defaults.headers.common.Authorization = 'Bearer ' + this.state.token
       return new Promisse((resolve, reject) => {
