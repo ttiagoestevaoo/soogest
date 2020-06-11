@@ -1,37 +1,31 @@
 <template>
   <div id="tasks">
     <Navbar></Navbar>
-    <div class="d-flex justify-center mb-4">
-      <h2>Minhas tarefas</h2>
-
-    </div>
-    <div class="d-flex justify-space-around mb-6" v-if="tasks.length && this.render">
-      <v-card
-      class="mx-auto col-4"
-      max-width="344"
-      v-for="task in tasks"
-      :key="task.id">
-        <v-card-text>
-          <p class="display-1 text--primary">
-            {{ task.name }}
-          </p>
-
-          <div class="text--primary">
-            {{ task.description }}
-          </div>
-        </v-card-text>
-        <v-card-actions>
-          <v-btn
-            text
-            color="deep-purple accent-4"
-            :to="{ name: 'tasks.show', params: { id: task.id } }"
-          >
-            Ver tarefa
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </div>
-    <p v-else-if="!tasks.length && this.render" class="mb-6">Possui nenhuma tarefa, crie alguma </p>
+    <v-card class="container">
+      <v-card-title>
+        Tarefas
+        <v-spacer></v-spacer>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
+      </v-card-title>
+      <v-data-table
+        v-if="tasks.length && this.render"
+        :items="tasks"
+        :headers="headers"
+        :search="search"
+      >
+        <template #item.complete="{item}">
+          <input type="checkbox" checked v-if="item.complete == true" v-on:click="notComplete(item)">
+          <input type="checkbox" v-else v-on:click="complete(item)">
+        </template>
+      </v-data-table>
+      <p v-else-if="!tasks.length && this.render" class="mb-6">Possui nenhuma tarefa, crie alguma </p>
+    </v-card>
     <v-btn
       color="blue"
       dark
@@ -64,6 +58,37 @@ export default {
       this.tasks = response.data
       this.render = true
     })
+  },
+  computed: {
+    headers () {
+      return [
+        { text: 'Concluido', value: 'complete' },
+        { text: 'Nome', value: 'name' },
+        { text: 'Prazo', value: 'deadline' }
+      ]
+    }
+  },
+  methods: {
+    complete (item) {
+      this.$store.dispatch('updateTask', {
+        id: item.id,
+        name: item.name,
+        description: item.description,
+        deadline: item.deadline,
+        project_id: item.project_id,
+        complete: true
+      })
+    },
+    notComplete (item) {
+      this.$store.dispatch('updateTask', {
+        id: item.id,
+        name: item.name,
+        description: item.description,
+        deadline: item.deadline,
+        project_id: item.project_id,
+        complete: false
+      })
+    }
   }
 }
 </script>
@@ -72,5 +97,16 @@ export default {
 
 .v-toolbar_content {
     box-shadow: none;
+}
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 2px;
+}
+
+.table td {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
 }
 </style>
