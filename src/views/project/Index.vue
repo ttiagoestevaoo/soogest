@@ -5,37 +5,41 @@
       <h2>Meus projetos</h2>
 
     </div>
-    <div class="d-flex justify-space-around mb-6" v-if="projects.length && this.render">
-      <v-card
-      class="mx-auto col-4"
-      outlined
-      max-width="344"
-      v-for="project in projects"
-      :key="project.id">
-        <v-card-text>
-          <p class="display-1 text--primary">
-            {{ project.name }}
-          </p>
-
-          <div class="text--primary">
-            {{ project.description }}
-          </div>
-          <p class="">
-            {{ project.deadline | formatDate }}
-          </p>
-        </v-card-text>
-        <v-card-actions>
-          <v-btn
-            text
-            color="deep-purple accent-4"
-            :to="{ name: 'projects.show', params: { id: project.id } }"
+    <v-container fluid>
+      <v-row v-if="projects.length && this.render">
+        <v-col cols="4" lg="3" md="4"
+          v-for="project in projects"
+          :key="project.id">
+          <v-card
+          outlined
           >
-            Ver projeto
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </div>
+            <v-card-text>
+              <p class="display-1 text--primary">
+                {{ project.name}}
+              </p>
+
+              <div class="text--primary">
+                {{ project.description }}
+              </div>
+              <p class="">
+                {{ project.deadline | formatDate }}
+              </p>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn
+                text
+                color="deep-purple accent-4"
+                :to="{ name: 'projects.show', params: { id: project.id } }"
+              >
+                Ver projeto
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
     <p v-else-if="!projects.length && this.render" class="mb-6">Possui nenhum projeto, crie algum </p>
+    </v-container>
+
     <v-btn
       color="blue"
       dark

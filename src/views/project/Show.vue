@@ -66,14 +66,11 @@
       <v-col  cols="12" md=9 lg=8>
         <v-card>
           <v-card-text>
-            <h2>{{ project.name }}</h2>
-            <p>{{ project.description }}</p>
-            <p>{{ project.deadline | formatDate }}</p>
+            Nome:<h2>{{ project.name }}</h2>
+            Descrição:<p>{{ project.description }}</p>
+            Prazo:<p>{{ project.deadline | formatDate }}</p>
             <v-btn :to="{ name: 'projects.edit', params:project.id}">
               Editar
-            </v-btn>
-            <v-btn>
-              Deletar
             </v-btn>
           </v-card-text>
         </v-card>
