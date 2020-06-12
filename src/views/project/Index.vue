@@ -21,7 +21,7 @@
             {{ project.description }}
           </div>
           <p class="">
-            {{ project.deadline }}
+            {{ project.deadline | formatDate }}
           </p>
         </v-card-text>
         <v-card-actions>
@@ -52,6 +52,7 @@
 
 <script>
 import Navbar from '@/components/Navbar.vue'
+import moment from 'moment'
 export default {
   components: {
     Navbar
@@ -60,6 +61,15 @@ export default {
     return {
       projects: [],
       render: false
+    }
+  },
+  filters: {
+    formatDate: function (value) {
+      if (value) {
+        return moment(value).format('DD/MM/YYYY')
+      } else {
+        return ''
+      }
     }
   },
   created () {

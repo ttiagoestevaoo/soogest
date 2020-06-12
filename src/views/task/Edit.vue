@@ -45,7 +45,7 @@
                 <v-col cols=12>
                   <v-row>
                     <v-col cols=4>
-                      <v-btn :to="{ name: 'tasks.show', params: id }">Cancelar</v-btn>
+                      <v-btn :to="{ name: 'tasks' }">Cancelar</v-btn>
                     </v-col>
 
                     <v-col cols=4>
@@ -74,7 +74,7 @@
                           </v-card-title>
 
                           <v-card-text>
-                            Tem certeza que desaja excluir este projeto?
+                            Tem certeza que desaja excluir esta tarefa?
                           </v-card-text>
 
                           <v-divider></v-divider>
@@ -123,11 +123,12 @@ export default {
   },
   data () {
     return {
+      id: 0,
       name: '',
       description: '',
       deadline: '',
       complete: '',
-      task_id: '',
+      project_id: '',
       projects: [],
       dialog: false
     }
@@ -156,7 +157,7 @@ export default {
         .then((response) => {
           this.$store.dispatch('setSnackbar', 'Tarefa editada com sucesso')
           this.$router.push({
-            name: 'tasks.show',
+            name: 'tasks',
             params: this.id
           })
         })

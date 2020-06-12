@@ -67,14 +67,6 @@ const routes = [
     }
   },
   {
-    path: '/tasks/:id',
-    name: 'tasks.show',
-    component: () => import('../views/task/Show.vue'),
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
     path: '/tasks/:id/edit',
     name: 'tasks.edit',
     component: () => import('../views/task/Edit.vue'),
