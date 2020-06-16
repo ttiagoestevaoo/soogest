@@ -59,7 +59,7 @@ const routes = [
     }
   },
   {
-    path: '/tasks/create',
+    path: '/tasks/create/:project_id?',
     name: 'tasks.create',
     component: () => import('../views/task/Create.vue'),
     meta: {
