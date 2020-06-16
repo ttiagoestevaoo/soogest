@@ -30,9 +30,13 @@
                     <input name="deadline" class="col-12" required type="date"  v-model="deadline" placeholder=""/>
                 </v-col>
 
-                <v-col cols=12>
+                <v-col cols=12 v-if="!this.$route.params.project_id">
                   <label for="project_id" class="col-12">Projeto</label>
-                  <select name="project_id" class="col-12 selectProject" v-model="project_id">
+                  <select
+                    name="project_id"
+                    class="col-12 selectProject"
+                    v-model="project_id"
+                  >
                     <option v-for="project in projects" :key="project.id" v-bind:value="project.id">
                       {{ project.name }}
                     </option>
@@ -84,18 +88,33 @@ export default {
   },
   methods: {
     submit () {
+      var id
+      if (this.$route.params.project_id) {
+        id = this.$route.params.project_id
+      } else {
+        id = this.project_id
+      }
       this.$store.dispatch('createTask', {
         name: this.name,
         description: this.description,
         deadline: this.deadline,
-        project_id: this.project_id,
+        project_id: id,
         complete: this.complete
       })
         .then((response) => {
           this.$store.dispatch('setSnackbar', 'Tarefa criada com sucesso')
-          this.$router.push({
-            name: 'tasks'
-          })
+          if (this.$route.params.project_id) {
+            this.$router.push({
+              name: 'projects.show',
+              params: {
+                id: this.$route.params.project_id
+              }
+            })
+          } else {
+            this.$router.push({
+              name: 'tasks'
+            })
+          }
         })
     }
   }

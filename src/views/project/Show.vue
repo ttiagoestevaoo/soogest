@@ -20,10 +20,10 @@
                 <p>{{ sTask.deadline | formatDate }}</p>
               </v-col>
               <v-col cols="12" v-if="sTask.project">
-                <p>{{ sTask.project }}</p>
+                <p>{{ sTask.project.name }}</p>
               </v-col>
               <v-col cols="12" v-if="sTask.complete">
-                <p>{{ sTask.complete }}</p>
+                <p>Concluido</p>
               </v-col>
             </v-row>
           </v-container>
@@ -59,6 +59,15 @@
             :key="task.id"
             >
               <v-btn text large @click="showItem(task)">{{ task.name }}</v-btn>
+            </div>
+            <div>
+              <v-btn
+                color="blue"
+                dark
+                :to="{ name: 'tasks.create', params: { project_id: this.project.id } }"
+              >
+                <v-icon>mdi-plus</v-icon> Adicionar tarefa
+              </v-btn>
             </div>
           </v-card-text>
         </v-card>

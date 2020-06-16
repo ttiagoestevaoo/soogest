@@ -21,10 +21,10 @@
                   <p>{{ sTask.deadline | formatDate}}</p>
                 </v-col>
                 <v-col cols="12" v-if="sTask.project">
-                  <p>{{ sTask.project }}</p>
+                  <p>{{ sTask.project.name }}</p>
                 </v-col>
                 <v-col cols="12" v-if="sTask.complete">
-                  <p>{{ sTask.complete }}</p>
+                  <p>Concluido</p>
                 </v-col>
               </v-row>
             </v-container>
@@ -166,6 +166,7 @@ export default {
         project_id: item.project_id,
         complete: true
       })
+      this.$store.dispatch('setSnackbar', 'Tarefa concluida')
     },
     notComplete (item) {
       this.$store.dispatch('updateTask', {
@@ -176,6 +177,7 @@ export default {
         project_id: item.project_id,
         complete: false
       })
+      this.$store.dispatch('setSnackbar', 'Tarefa não concluida')
     },
     showItem (item) {
       this.sTask = Object.assign({}, item)
@@ -193,7 +195,7 @@ export default {
           id: id
         })
           .then((response) => {
-            this.$store.dispatch('setSnackbar', 'Projeto excluído com sucesso')
+            this.$store.dispatch('setSnackbar', 'Tarefa excluída com sucesso')
             this.$router.push({
               name: 'tasks'
             })
